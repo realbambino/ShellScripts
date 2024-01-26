@@ -1,6 +1,6 @@
-set /p wkey=Please type in the SSID
-set /p lclhost=127.0.0.1
-set /p pingIP=13.107.4.52
+set wkey=Please type in the SSID
+set lclhost=127.0.0.1
+set pingIP=13.107.4.52
 
 @ECHO THIS MAY HELP TO REPAIR / RECTIFY,
 @ECHO VERY, SIMPLE NETWORK DIFFICULTIES.
