@@ -22,5 +22,5 @@ end_time="$2"
 video_id="$3"
 
 # Download specific section of the video
-yt-dlp --download-sections *0:$start_time-0:$end_time -f "[protocol!*=dash]+bestaudio[acodec^=mp4a]" --audio-format m4a --audio-quality 0 -o "%(title)s.%(ext)s" "https://www.youtube.com/watch?v=$video_id"
+yt-dlp --download-sections *0:$start_time-0:$end_time -f "bestaudio[acodec^=mp4a]" --audio-format m4a --audio-quality 0 -o "%(title)s.%(ext)s" "https://www.youtube.com/watch?v=$video_id"
 
