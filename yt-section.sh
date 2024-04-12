@@ -29,7 +29,7 @@ video_id="$3"
 # Adding some screen information to the user
 echo -e "${YELLOW}INFO:${NC} Downloading section from ID: $video_id"
 echo -e "${YELLOW}INFO:${NC} Preparing to download"
-echo -e "${YELLOW}INFO:${NC} Download section(s) from timestamp ${WHITE}start_time${NC} and ${WHITE}end_time${NC}"
+echo -e "${YELLOW}INFO:${NC} Download section(s) from timestamp ${WHITE}$start_time${NC} and ${WHITE}$end_time${NC}"
 echo -e "${YELLOW}INFO:${NC} Loading modules, please wait..."   
 
 # Download specific section of the video
