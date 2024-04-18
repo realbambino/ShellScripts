@@ -91,15 +91,7 @@ echo -e "${YELLOW}INFO:${NC} Set download section from timestamp: ${WHITE}$start
 echo -e "${YELLOW}INFO:${NC} Loading modules, please wait..."
 
 # Download specific section of the video
-yt-dlp --download-sections *0:$start_time-0:$end_time -f "bestvideo[height<=2160][protocol!*=dash]+bestaudio/best[height<=2160][protocol!*=dash]" -o "downloaded_video.%(ext)s" "$full_link"
-
-# Convert the audio to AAC using FFMPEG
-echo -e "${YELLOW}INFO:${NC} Converting audio to ${WHITE}AAC${NC}"
-ffmpeg -i 'downloaded_video.webm' -c:v copy -c:a aac -loglevel quiet -strict experimental 'downloaded_video.mkv'
-
-# Removing the old video
-echo -e "${YELLOW}INFO:${NC} Cleaning up"
-rm 'downloaded_video.webm'
+yt-dlp --download-sections *0:$start_time-0:$end_time -f "bestvideo[height<=2160][vcodec^=hevc][protocol!*=dash]/bestvideo[height<=2160][vcodec^=avc1][protocol!*=dash]+bestaudio[acodec^=mp4a]/best[height<=2160]" --merge-output-format mp4 --audio-quality 0 -o "%(title)s.%(ext)s" "$full_link"
 
 # Download completed
 echo -e "${YELLOW}INFO:${NC} ${WHITE}Download complete${NC}"
