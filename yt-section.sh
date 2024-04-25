@@ -26,7 +26,7 @@ fi
 start_time="$1"
 end_time="$2"
 video_id="$3"
-ull_link=""
+full_link=""
 
 # Get System Information
 mac_version=$(sw_vers -productVersion)
@@ -91,7 +91,7 @@ echo -e "${YELLOW}INFO:${NC} Set download section from timestamp: ${WHITE}$start
 echo -e "${YELLOW}INFO:${NC} Loading modules, please wait..."
 
 # Download specific section of the video
-yt-dlp --download-sections *0:$start_time-0:$end_time -f "bestvideo[height<=2160][vcodec^=hevc][protocol!*=dash]/bestvideo[height<=2160][vcodec^=avc1][protocol!*=dash]+bestaudio[acodec^=mp4a]/best[height<=2160]" --merge-output-format mp4 --audio-quality 0 -o "%(title)s.%(ext)s" "$full_link"
+yt-dlp --download-sections *0:$start_time-0:$end_time -f "bestvideo[height<=2160][vcodec^=avc1][protocol!*=dash]+bestaudio[acodec^=mp4a]/best[height<=2160]" --merge-output-format mp4 --audio-quality 0 -o "%(title)s.%(ext)s" "$full_link" 
 
 # Download completed
 echo -e "${YELLOW}INFO:${NC} ${WHITE}Download complete${NC}"
